@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Join Gautam Trader ™ for daily stock market analysis, intraday trading learning, and risk management strategies.">
-    <title>TRADE WITH MOHIT AGRAWAL
-</title>
+    <title>TRADE WITH MOHIT AGRAWAL</title>
     
     <script>
     !function(f,b,e,v,n,t,s)
@@ -111,7 +110,7 @@
             text-transform: none;
             margin-bottom: 15px;
             box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
-            transition: transform 0.2s;
+            transition: transform 0.2s, opacity 0.2s;
         }
 
         .btn-green:active {
@@ -201,17 +200,15 @@
 
     <main class="card">
         <div class="profile-container">
-            <img src="profile.png" alt="TRADE WITH MOHIT AGRAWAL
- logo">
+            <img src="profile.png" alt="TRADE WITH MOHIT AGRAWAL logo">
         </div>
 
-        <h1 class="title">TRADE WITH MOHIT AGRAWAL
-</h1>
+        <h1 class="title">TRADE WITH MOHIT AGRAWAL</h1>
         
         <p class="subtitle">NIFTY • BANKNIFTY • OPTIONS</p>
         <p class="tagline">Daily Intraday Trading Signals & Analysis</p>
 
-        <button class="btn-green" onclick="redirectToTelegram()" aria-label="Join Free Telegram Channel">
+        <button id="telegramBtn" class="btn-green" onclick="trackButtonClick()" aria-label="Join Free Telegram Channel">
             🚀 Join Free Telegram Channel
         </button>
 
@@ -243,23 +240,33 @@
         </p>
 
         <div class="managed-tag">
-            Powered by <a href="https://t.me/Elite_marketing_ads" target="_blank" rel="noopener noreferrer">ELITE MARKETING AGENCY</a>
+            Powered by <a href="https://t.me/+mp524qElHEQ2YWU1" target="_blank" rel="noopener noreferrer">ELITE MARKETING AGENCY</a>
         </div>
     </main>
 
     <script>
-        var hasTracked = false;
-        var telegramLink = "https://t.me/+LnLHqin3m5QzZmY9";
+        var isClicked = false;
+        var telegramUrl = "https://t.me/+LnLHqin3m5QzZmY9"; // आपका पहला लिंक
 
-        function redirectToTelegram() {
-            if (!hasTracked && typeof fbq !== 'undefined') {
-                fbq('track', 'Subscribe');
-                hasTracked = true;
+        function trackButtonClick() {
+            if (!isClicked) {
+                isClicked = true;
+
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'TelegramBtnClick'); 
+                    fbq('track', 'Subscribe'); 
+                }
+
+                var btn = document.getElementById('telegramBtn');
+                if (btn) {
+                    btn.style.pointerEvents = 'none';
+                    btn.style.opacity = '0.7';
+                }
+
+                setTimeout(function() {
+                    window.location.href = telegramUrl;
+                }, 300);
             }
-
-            setTimeout(function() {
-                window.location.href = telegramLink;
-            }, 300);
         }
     </script>
 
