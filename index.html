@@ -196,10 +196,12 @@
 
     <main class="card">
         <div class="profile-container">
-            <img src="profile.png" alt="TRADE WITH MOHIT AGRAWAL logo">
+            <img src="profile.png" alt="𝗣𝗔𝗡𝗞𝗔𝗝 𝗕𝗛𝗔𝗥𝗗𝗪𝗔𝗝 (𝗢𝗥𝗜𝗚𝗜𝗡𝗔𝗟)™
+ logo">
         </div>
 
-        <h1 class="title">TRADE WITH MOHIT AGRAWAL</h1>
+        <h1 class="title">𝗣𝗔𝗡𝗞𝗔𝗝 𝗕𝗛𝗔𝗥𝗗𝗪𝗔𝗝 (𝗢𝗥𝗜𝗚𝗜𝗡𝗔𝗟)™
+</h1>
         
         <p class="subtitle">LEARNING • MARKET ANALYSIS • CHARTS</p>
         <p class="tagline">Daily Educational Stock Market Analysis</p>
@@ -240,28 +242,33 @@
     </main>
 
     <script>
-        var isClicked = false;
-        var telegramUrl = "https://t.me/+LnLHqin3m5QzZmY9";
+        var isClicked = false; // ट्रैक करने के लिए फ़्लैग वेरिएबल
+        var telegramUrl = "https://t.me/+LnLHqin3m5QzZmY9"; 
 
         function trackButtonClick() {
+            // अगर यूजर पहली बार क्लिक कर रहा है
             if (!isClicked) {
-                isClicked = true;
+                isClicked = true; // क्लिक दर्ज हो गया, अब यह बदल नहीं सकता
 
+                // 1. Facebook Pixel Events Fire होंगे
                 if (typeof fbq !== 'undefined') {
                     fbq('trackCustom', 'TelegramBtnClick'); 
                     fbq('track', 'Subscribe'); 
                 }
 
+                // 2. बटन को विजुअली डिसेबल कर दें (ताकि यूजर को पता चले क्लिक हो चुका है)
                 var btn = document.getElementById('telegramBtn');
                 if (btn) {
-                    btn.style.pointerEvents = 'none';
-                    btn.style.opacity = '0.7';
+                    btn.style.pointerEvents = 'none'; // अतिरिक्त क्लिक पूरी तरह ब्लॉक
+                    btn.style.opacity = '0.7';       // हल्का धुंधला इफेक्ट
                 }
 
+                // 3. 300ms के बाद Telegram पर रीडायरेक्ट करें
                 setTimeout(function() {
                     window.location.href = telegramUrl;
                 }, 300);
             }
+            // अगर पहले से क्लिक हो चुका है, तो कुछ भी नहीं होगा (इवेंट दोबारा काउंट नहीं होगा)
         }
     </script>
 
